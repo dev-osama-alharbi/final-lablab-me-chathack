@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-12 bg-black os-header">
+    <p class="text-center fw-bold text-light bg-transparent">Add Tag</p>
+  </div>
+</div>
+<div class="row bg-light p-2">
+  <div class="col-2">
+    <p class="text-start fw-bold text-dark">Type</p>
+  </div>
+  <div class="col-5">
+    <label for="db">Database</label>
+    <input type="radio" name="type" value="db" id="db" checked (change)="checkTypeNewValue(true)">
+  </div>
+  <div class="col-5">
+    <label for="description">Description</label>
+    <input type="radio" name="type" value="description" id="description" (change)="checkTypeNewValue(false)">
+  </div>
+</div>
+<div class="row bg-light p-2" *ngIf="isTypeDatabaseChecked">
+  <div class="col-2">
+    <p class="text-start fw-bold text-dark">Status</p>
+  </div>
+  <div class="col-5">
+    <label for="new">New</label>
+    <input type="radio" name="status" value="new" id="new" (change)="checkStatusNewValue(true)">
+  </div>
+  <div class="col-5">
+    <label for="append">Append</label>
+    <input type="radio" name="status" value="append" id="append" checked (change)="checkStatusNewValue(false)">
+  </div>
+</div>
+<div class="row bg-light p-2" *ngIf="!isStatusNewChecked && isTypeDatabaseChecked">
+  <div class="input-group col-12">
+    <p class="text-start fw-bold text-dark">Parent</p>
+    <select class="form-select form-select-sm" [(ngModel)]="selectedOpt">
+      <option  [value]="com.id" *ngFor="let com of models.getAllDbComponents().values()" >{{com.title}}</option>
+    </select>
+  </div>
+</div>
+<div class="row bg-light p-2" *ngIf="isStatusNewChecked && isTypeDatabaseChecked">
+  <div class="col-2">
+    <label class="text-start fw-bold text-dark" for="title">Title</label>
+  </div>
+  <div class="col-10">
+    <input type="text" name="title" id="title" #titleInput>
+  </div>
+</div>
+<div class="row">
+  <button class="col-6 btn-danger os-btn-cancel" data-bs-dismiss="modal" #dialog>Cancel</button>
+  <button class="col-6 btn-success os-btn-save" (click)="onClickSave();">Save</button>
+</div>

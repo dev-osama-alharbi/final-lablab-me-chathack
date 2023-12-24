@@ -1,0 +1,10 @@
+<li class="replies col-6 row">
+  <p class="head">{{ msg.msg }}</p>
+  <div class="tags-start">
+    <button class="btn-osm" data-bs-toggle="modal" data-bs-target="#myModal" (click)="popupClick(msg.id)">+</button>
+    <div *ngFor="let tag of models.listTag.get(msg.id)">
+      <app-msg-tag class="tags" [tag]="tag"></app-msg-tag>
+    </div>
+    <div class="tag"></div>
+  </div>
+</li>

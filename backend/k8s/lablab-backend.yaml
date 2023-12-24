@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lablabb
+  namespace: lablab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: lablabb
+  template:
+    metadata:
+      name: lablabb
+      labels:
+        name: lablabb
+    spec:
+      containers:
+        - name: osam0
+          image: aaaa/aaaa:latest
+          ports:
+            - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lablabb
+  namespace: lablab
+spec:
+  selector:
+    name: lablabb
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

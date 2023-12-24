@@ -1,0 +1,23 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="flush-headingTwo">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse-' + componentM.id" aria-expanded="false" aria-controls="flush-collapseTwo">
+      <div>
+        <div *ngIf="componentM.componentType.endsWith('DB')">
+          <span>
+            <i class="fa fa-database fa-s"></i>
+          </span>
+          | {{componentM.title}} | {{componentM.msg}}
+        </div>
+        <div *ngIf="!componentM.componentType.endsWith('DB')">
+          <span>
+            <div style="font-size: x-large; font-weight: bold">! </div>
+          </span>
+           | {{componentM.title}} | {{componentM.msg}}
+        </div>
+      </div>
+    </button>
+  </h2>
+  <div id="flush-collapse-{{componentM.id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+    <app-target-slider-table [componentM]="componentM"></app-target-slider-table>
+  </div>
+</div>

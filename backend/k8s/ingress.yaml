@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lablab
+  namespace: lablab
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: lablab.dev-ops.live
+    http:
+      paths:
+        - backend:
+            service:
+              name: lablabb
+              port:
+                number: 8080
+          path: /
+          pathType: Prefix

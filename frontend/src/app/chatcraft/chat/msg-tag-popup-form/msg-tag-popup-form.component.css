@@ -1,0 +1,12 @@
+.os-header{
+  padding: 10px;
+  border-radius: 20px 20px 0 0;
+}
+.os-btn-cancel{
+  padding: 10px;
+  border-radius: 0 0 0 20px;
+}
+.os-btn-save{
+  padding: 10px;
+  border-radius: 0 0 20px 0;
+}

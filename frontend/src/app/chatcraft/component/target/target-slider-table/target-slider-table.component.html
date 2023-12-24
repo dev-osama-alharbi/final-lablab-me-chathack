@@ -1,0 +1,16 @@
+<table class="table table-dark table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">First</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let tag of models.listTagByComponentId.get(componentM.id)">
+  <tr *ngIf="!tag.isComponent">
+    <th scope="row">{{tag.item?.msgId}}</th>
+    <td>{{tag.item?.msg}}</td>
+    <td>X </td>
+  </tr>
+  </tbody>
+</table>

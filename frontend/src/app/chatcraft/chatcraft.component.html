@@ -1,0 +1,45 @@
+<!--<mat-toolbar class="mat-elevation-z3">-->
+<!--  <button mat-icon-button>-->
+<!--    <mat-icon>menu</mat-icon>-->
+<!--  </button>-->
+<!--</mat-toolbar>-->
+
+<mat-sidenav-container>
+  <mat-sidenav opened mode="side" [style.width]="'250px'" [style.background-color]="'#32353B'">
+    <ul class="list-unstyled">
+<!--      <li class="sidebar-item nav__link"><a class="sidebar-link" (click)="_pageView()" routerLink="/project/1/dashboard">-->
+<!--        <svg class="svg-icon svg-icon-sm svg-icon-heavy">-->
+<!--        </svg><span>dashboard </span></a></li>-->
+      <li class="sidebar-item nav__link"><a class="sidebar-link" (click)="_pageView()" routerLink="/project/1/chat">
+        <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+        </svg><span>chat </span></a></li>
+<!--      <li class="sidebar-item nav__link"><a class="sidebar-link" (click)="_pageView()" routerLink="/project/1/users">-->
+<!--        <svg class="svg-icon svg-icon-sm svg-icon-heavy">-->
+<!--        </svg><span>users </span></a></li>-->
+<!--      <li class="sidebar-item nav__link"><a class="sidebar-link" (click)="_pageView()" routerLink="/project/1/export">-->
+<!--        <svg class="svg-icon svg-icon-sm svg-icon-heavy">-->
+<!--        </svg><span>export </span></a></li>-->
+      <li class="sidebar-item nav__link"><a class="sidebar-link" (click)="_pageView()" routerLink="/project/1/component">
+        <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+        </svg><span>component </span></a></li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content class="content" style="">
+<!--        <app-dashboard *ngIf="isShowDashboard"></app-dashboard>-->
+        <app-chat *ngIf="isShowChat" style="height: calc(100vh);" (msgIdc)="popupClick($event)"></app-chat>
+<!--        <app-users *ngIf="isShowUsers"></app-users>-->
+        <app-component *ngIf="isShowComponent"></app-component>
+<!--        <app-export *ngIf="isShowExport"></app-export>-->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<div style="all: unset" #dialog>
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body" style="margin: 0 !important; padding: 0 !important;">
+          <app-msg-tag-popup-form [msgId]="msgId"></app-msg-tag-popup-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

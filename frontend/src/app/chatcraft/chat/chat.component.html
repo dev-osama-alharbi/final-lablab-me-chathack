@@ -1,0 +1,19 @@
+<div id="frame">
+  <div class="content">
+    <div class="messages">
+      <ul>
+<!--        <app-msg-sent ></app-msg-sent>-->
+<!--        <app-msg-receive></app-msg-receive>-->
+<!--        <app-msg-sent ></app-msg-sent>-->
+<!--        <app-msg-receive></app-msg-receive>-->
+<!--        <app-msg-sent ></app-msg-sent>-->
+<!--        <app-msg-receive></app-msg-receive>-->
+        <div *ngFor="let it of models.listMsg">
+          <app-msg-sent [msg]="it" *ngIf="it.memberId === 1" (msgIdm)="popupClick($event)"></app-msg-sent>
+          <app-msg-receive [msg]="it" *ngIf="it.memberId === 2" (msgIdm)="popupClick($event)"></app-msg-receive>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <app-msg-write></app-msg-write>
+</div>
